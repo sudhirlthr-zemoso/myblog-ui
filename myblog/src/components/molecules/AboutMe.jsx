@@ -13,7 +13,7 @@ export default function AboutMe(props){
                 <h2>About Me</h2>
                 {/* <p>{currentUser.firstName +" "+currentUser.lastName}</p> */}
                 <p>{userEmail}</p>
-                <p>Software Engineer at Zemoso Technologies Pvt. Ltd.</p>
+                {/* <p>Software Engineer at Zemoso Technologies Pvt. Ltd.</p> */}
             </div>
             {/* <div className="card">
                 <h3>Follow Me</h3>
