@@ -1,0 +1,61 @@
+syntax ="proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zemoso.grpc";
+
+service CmsBlog{
+	rpc login(Usercredential) returns (Grpcsocialuser);
+	rpc post(Logincms) returns (Bloglist);
+	rpc create(Blog) returns (Blog);
+	rpc delete(DeletePost) returns (Blog);
+	rpc postcomment(Comment) returns (Blog);
+}
+
+message Usercredential{
+	string username = 1;
+	string password = 2;
+}
+
+message Logincms{
+	int32 responsecode = 1;
+	string responsemessage = 2;
+}
+
+message Blog{
+	int64 blogid = 1;
+	string content = 2;
+	string refuser = 3;
+	Commentlist comments = 4;
+	string title = 5;
+	string creationdate = 6;
+}
+
+message Bloglist{
+	int64 bloglistid = 1;
+	repeated Blog blogs = 2;
+}
+
+message Comment{
+	int64 commentsid = 1;
+	string content = 2;
+	string commentsdate = 3;
+	int64 blogid = 4;
+	string refuser = 5;
+}
+
+message Commentlist{
+	int64 commentlistid = 1;
+	repeated Comment comments = 2;
+}
+
+message DeletePost{
+	int64 blogid = 1;
+}
+
+message Grpcsocialuser{
+	int64 userid = 1;
+	string email = 2;
+	string firstName = 3;
+	string lastName = 4;
+	string token = 5;
+}
